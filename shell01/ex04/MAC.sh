@@ -1,1 +1,1 @@
-ifconfig | grep -w ether | tr -d "ether" | tr -d "[:blank:]"
+ifconfig -a | grep -w 'ether' | cut -d ' ' -f 2
