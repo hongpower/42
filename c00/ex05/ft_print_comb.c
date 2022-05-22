@@ -1,43 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush00.c                                           :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 13:39:50 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/21 21:40:47 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/21 16:36:35 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/23 00:35:45 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putchar(char c);
-
-void	rush(int x, int y)
+void	ft_putchar(char a, char b, char c)
 {
-	int	r;
-	int	c;
+	write(1, &a, 1);
+	write(1, &b, 1);
+	write(1, &c, 1);
+}
 
-	r = 1;
-	while (r <= y)
+void	ft_print_comb(void)
+{
+	char	a;
+	char	b;
+	char	c;
+
+	a = '0';
+	b = '1';
+	c = '2';
+	while (a <= '7')
 	{
-		c = 1;
-		while (c <= x)
+		while (b <= '8')
 		{
-			if ((r == 1) && ((c == 1) || (c == x)))
-				ft_putchar('o');
-			else if ((r == y) && ((c == 1) || (c == x)))
-				ft_putchar('o');
-			else if ((r == 1) || (r == y))
-				ft_putchar('-');
-			else if ((c == 1) || (c == x))
-				ft_putchar('|');
-			else
-				ft_putchar(' ');
-			c++;
+			while (c <= '9')
+			{
+				ft_putchar(a, b, c);
+				if ((a != '7') || (b != '8') || (c != '9'))
+					write(1, ", ", 2);
+				c++;
+			}
+			b++;
+			c = b + 1;
 		}
-		ft_putchar('\n');
-		r++;
+		b = a + 1;
+		a++;
 	}
+}
+
+int	main(void)
+{
+	ft_print_comb();
+	return (0);
 }
