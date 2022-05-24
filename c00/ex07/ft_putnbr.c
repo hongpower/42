@@ -6,7 +6,7 @@
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:01:47 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 01:13:43 by jishong          ###   ########.fr       */
+/*   Updated: 2022/05/24 16:42:51 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_print_zero(void)
 
 int	ft_count_len(int nb)
 {
-	int	len_num;
+	long	len_num;
 
 	len_num = 1;
 	while (nb / len_num != 0)
@@ -63,17 +63,17 @@ void	ft_putnbr(int nb)
 	int	c;
 
 	g_cnt = 0;
-	if (nb <= -2147483647 || nb >= 2147483647 || nb == 0)
+	if (nb <= -2147483648 || nb > 2147483647 || nb == 0)
 	{
 		if (nb == 0)
 			write(1, "0", 1);
-		else if (nb == -2147483647)
-			write(1, &nb, 10);
+		else if (nb == -2147483648)
+			write(1, "-2147483648", 11);
 		return ;
 	}
 	nb = ft_check_num(nb);
 	len_num = ft_count_len(nb);
-	while (nb != 0)
+	while (nb != 0 && len_num != 0)
 	{
 		num = nb / len_num;
 		c = num + '0';
