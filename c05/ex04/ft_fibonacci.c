@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 19:55:11 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/28 22:43:51 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 21:28:38 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 22:02:26 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-unsigned int	count_len(char *ary)
-{
-	unsigned int	len;
 
-	len = 0;
-	while (*(ary + len) != '\0')
-		len++;
-	return (len);
+int	ft_get_nth_n(int *ary, int index)
+{
+	int	temp;
+
+	if (index > 0)
+	{
+		temp = ary[0] + ary[1];
+		ary[0] = ary[1];
+		ary[1] = temp;
+		ft_get_nth_n(ary, --index);
+	}
+	return (ary[0]);
 }
 
-char	*ft_strcat(char *dest, char *src)
-{
-	unsigned int	dest_len;
-	unsigned int	src_len;
-	unsigned int	cnt;
+int	ft_fibonacci(int index)
+{	
+	int	ary[2];
 
-	dest_len = count_len(dest);
-	src_len = count_len(src);
-	cnt = 0;
-	while (cnt < src_len)
-	{
-		dest[dest_len] = src[cnt];
-		cnt++;
-		dest_len++;
-	}
-	dest[dest_len] = '\0';
-	return (dest);
+	ary[0] = 0;
+	ary[1] = 1;
+	if (index < 0)
+		return (-1);
+	return (ft_get_nth_n(ary, index));
 }

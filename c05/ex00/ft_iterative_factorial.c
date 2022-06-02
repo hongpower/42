@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 19:55:11 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/28 22:43:51 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 16:38:07 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 19:27:03 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-unsigned int	count_len(char *ary)
+
+int	ft_iterative_factorial(int nb)
 {
-	unsigned int	len;
+	int		i;
+	long	ans;
 
-	len = 0;
-	while (*(ary + len) != '\0')
-		len++;
-	return (len);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	unsigned int	dest_len;
-	unsigned int	src_len;
-	unsigned int	cnt;
-
-	dest_len = count_len(dest);
-	src_len = count_len(src);
-	cnt = 0;
-	while (cnt < src_len)
+	ans = 1;
+	if (nb < 0)
+		return (0);
+	if (nb <= 1)
+		return (1);
+	ans = nb;
+	i = nb;
+	while (i != 1)
 	{
-		dest[dest_len] = src[cnt];
-		cnt++;
-		dest_len++;
+		ans = ans * (i - 1);
+		i--;
 	}
-	dest[dest_len] = '\0';
-	return (dest);
+	return (ans);
 }

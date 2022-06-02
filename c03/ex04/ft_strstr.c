@@ -6,7 +6,7 @@
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 23:59:40 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/28 00:48:33 by jishong          ###   ########.fr       */
+/*   Updated: 2022/05/30 21:08:40 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	check_if_substr(char *str, char *to_find, int i)

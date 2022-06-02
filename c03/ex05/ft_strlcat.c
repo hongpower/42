@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 19:55:11 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/28 22:43:51 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/28 22:11:48 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/30 19:24:20 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 unsigned int	count_len(char *ary)
@@ -19,21 +19,25 @@ unsigned int	count_len(char *ary)
 	return (len);
 }
 
-char	*ft_strcat(char *dest, char *src)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
+	unsigned int	cnt;
 	unsigned int	dest_len;
 	unsigned int	src_len;
-	unsigned int	cnt;
+	unsigned int	temp;
 
 	dest_len = count_len(dest);
 	src_len = count_len(src);
+	if (dest_len > size)
+		return (src_len + size);
 	cnt = 0;
-	while (cnt < src_len)
+	temp = dest_len;
+	while (temp + 1 < size && src[cnt] != '\0')
 	{
-		dest[dest_len] = src[cnt];
+		dest[temp] = src[cnt];
 		cnt++;
-		dest_len++;
-	}
-	dest[dest_len] = '\0';
-	return (dest);
+		temp++;
+	}	
+	dest[temp] = '\0';
+	return (src_len + dest_len);
 }
