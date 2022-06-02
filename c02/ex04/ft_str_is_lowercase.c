@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/25 13:42:56 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/25 20:43:09 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+int	ft_str_is_lowercase(char *str)
 {
-	char	i;
+	int	i;
 
-	i = '0';
-	while (i <= '9')
+	i = 0;
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] != '\0')
 	{
-		write(1, &i, 1);
+		if (str[i] < 'a' || str[i] > 'z')
+			return (0);
 		i++;
 	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	return (1);
 }

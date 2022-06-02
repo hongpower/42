@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/25 20:23:38 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/25 20:31:09 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+void	ft_putstr_non_printable(char *str);
+
+int	main(void)
 {
-	char	i;
+	char	*ary;
+	ary = "Coucou\ntu vas bien ?";
 
-	i = '0';
-	while (i <= '9')
-	{
-		write(1, &i, 1);
-		i++;
-	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	ft_putstr_non_printable(ary);
+	return (0);
 }

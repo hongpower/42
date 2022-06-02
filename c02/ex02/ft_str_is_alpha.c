@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/25 13:06:49 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/25 20:40:27 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+int	ft_str_is_alpha(char *str)
 {
-	char	i;
+	int	i;
 
-	i = '0';
-	while (i <= '9')
+	i = 0;
+	if (str[i] == '\0')
+		return (1);
+	i++;
+	while (str[i] != '\0')
 	{
-		write(1, &i, 1);
-		i++;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			i++;
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+			i++;
+		else
+			return (0);
 	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	return (1);
 }

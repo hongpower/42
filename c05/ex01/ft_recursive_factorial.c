@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 17:25:36 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 18:56:39 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+int	ft_recursive_factorial(int nb)
 {
-	char	i;
-
-	i = '0';
-	while (i <= '9')
-	{
-		write(1, &i, 1);
-		i++;
-	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	if (nb < 0)
+		return (0);
+	if (nb <= 1)
+		return (1);
+	else
+		return (nb * ft_recursive_factorial(nb - 1));
 }

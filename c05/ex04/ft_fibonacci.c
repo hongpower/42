@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 21:28:38 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 22:02:26 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+int	ft_get_nth_n(int *ary, int index)
 {
-	char	i;
+	int	temp;
 
-	i = '0';
-	while (i <= '9')
+	if (index > 0)
 	{
-		write(1, &i, 1);
-		i++;
+		temp = ary[0] + ary[1];
+		ary[0] = ary[1];
+		ary[1] = temp;
+		ft_get_nth_n(ary, --index);
 	}
+	return (ary[0]);
 }
 
-int	main(void){
-	ft_print_numbers();
+int	ft_fibonacci(int index)
+{	
+	int	ary[2];
+
+	ary[0] = 0;
+	ary[1] = 1;
+	if (index < 0)
+		return (-1);
+	return (ft_get_nth_n(ary, index));
 }

@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 19:00:15 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 19:03:31 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+int	ft_recursive_power(int nb, int power)
 {
-	char	i;
-
-	i = '0';
-	while (i <= '9')
-	{
-		write(1, &i, 1);
-		i++;
-	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	return (nb * ft_recursive_power(nb, power - 1));
 }

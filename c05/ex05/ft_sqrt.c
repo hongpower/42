@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 22:02:45 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 22:06:49 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+int	ft_sqrt(int nb)
 {
-	char	i;
+	int	sqrt;
 
-	i = '0';
-	while (i <= '9')
+	sqrt = 0;
+	while (sqrt <= nb / 2 + 1)
 	{
-		write(1, &i, 1);
-		i++;
+		if (sqrt * sqrt == nb)
+			return (sqrt);
+		sqrt++;
 	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	return (0);
 }

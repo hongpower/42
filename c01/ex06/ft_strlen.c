@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/23 02:28:23 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/23 02:38:37 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(void)
+int	ft_strlen(char *str)
 {
-	char	i;
+	int	cnt;
 
-	i = '0';
-	while (i <= '9')
+	cnt = 0;
+	while (str[cnt] != '\0')
 	{
-		write(1, &i, 1);
-		i++;
+		cnt++;
 	}
+	return cnt;
 }
 
-int	main(void){
-	ft_print_numbers();
+int	main(void)
+{
+	int	cnt;
+	char str[] = "hello";
+
+	cnt = ft_strlen(str);
 }

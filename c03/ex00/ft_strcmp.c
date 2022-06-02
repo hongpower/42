@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/26 21:20:07 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/30 21:08:07 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+int	ft_strcmp(char *s1, char *s2)
 {
-	char	i;
+	int	i;
 
-	i = '0';
-	while (i <= '9')
+	i = 0;
+	while (s2[i] && s1[i])
 	{
-		write(1, &i, 1);
+		if (s1[i] != s2[i])
+			return ((unsigned int)s1[i] - (unsigned int)s2[i]);
 		i++;
 	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
 }

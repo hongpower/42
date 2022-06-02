@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/06/02 22:07:03 by jishong           #+#    #+#             */
+/*   Updated: 2022/06/02 23:15:04 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+int	ft_is_prime(int nb)
 {
-	char	i;
+	int	n;
 
-	i = '0';
-	while (i <= '9')
+	n = 2;
+	if (nb == 0 || nb == 1)
+		return (0);
+	while (n < nb / 2)
 	{
-		write(1, &i, 1);
-		i++;
+		if (nb % n == 0)
+			return (0);
+		n++;
 	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	return (1);
 }

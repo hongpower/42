@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 16:07:14 by jishong           #+#    #+#             */
-/*   Updated: 2022/05/23 00:28:03 by jishong          ###   ########.fr       */
+/*   Created: 2022/05/24 19:15:47 by jishong           #+#    #+#             */
+/*   Updated: 2022/05/25 20:35:30 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+char	*ft_strcpy(char *dest, char *src)
 {
-	char	i;
+	int	idx;
 
-	i = '0';
-	while (i <= '9')
+	idx = 0;
+	while (src[idx] != '\0')
 	{
-		write(1, &i, 1);
-		i++;
+		dest[idx] = src[idx];
+		idx++;
 	}
-}
-
-int	main(void){
-	ft_print_numbers();
+	dest[idx] = src[idx];
+	return (dest);
 }
