@@ -6,16 +6,16 @@
 /*   By: jeongble <jeongble@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 18:01:22 by jeongble          #+#    #+#             */
-/*   Updated: 2022/06/07 22:50:40 by jishong          ###   ########.fr       */
+/*   Updated: 2022/06/08 19:35:22 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ex00/ft_foreach.c"
 #include "ex01/ft_map.c"
 #include "ex02/ft_any.c"
 #include "ex03/ft_count_if.c"
-#include "ex04/ft_is_sort.c"/*
-#include "ex06/ft_sort_string_tab.c"
-#include "ex07/ft_advanced_sort_string_tab.c"*/
+#include "ex04/ft_is_sort.c"
+//#include "ex06/ft_sort_string_tab.c"
+#include "ex07/ft_advanced_sort_string_tab.c"
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -60,12 +60,12 @@ int		main(void)
 		*(*(tab + 3)) = 'd';
 		printf("3 : %d\n", ft_count_if(tab, 4, &fff));
 		printf("\n===============EX04===============\n\n");
-		int tab2[6] = {1, 2, 3, 4, 5, 6};
-		printf("1 2 3 4 5 6\n");
-		if (ft_is_sort(tab2, 6, &comp))
-			printf("OK : OK\n\n");
+		int tab2[] = {0, 0, 0, 0, 0, 0, 2, 2, 3, 2, 1, 1, 2};
+		printf("0, 0, 0, 2, 0, 0, 2, 0, 1, 2\n");
+		if (ft_is_sort(tab2, 10, &comp))
+			printf("OK\n\n");
 		else
-			printf("OK : KO\n\n");
+			printf("KO\n\n");
 		int tab3[6] = {1, 3, 2, 4, 6, 5};
 		printf("1 3 2 4 6 5\n");
 		if (ft_is_sort(tab3, 6, &comp))
@@ -85,7 +85,7 @@ int		main(void)
 		printf("\nvvvvvvv\n");
 		ft_sort_string_tab(tab);
 		for (int i = 0; i < 4; i ++)
-			printf("%c ", *(*(tab + i)));
+			printf("%c ", *(*(tab + i)));*/
 		printf("\n\n===============EX07===============\n\n");
 		*(*(tab + 2)) = 'C';
 		*(*(tab + 1)) = 'b';
@@ -101,7 +101,7 @@ int		main(void)
 		printf("\n\n===============FIN===============\n\n");
 		printf("TEST CASE CAN NOT CONTAIN EVERY EXCEPTION CASE.\n           YOU MUST NOT BELIEVE IT.\n");
 		printf("\n=================================\n\n");
-		*/}
+		}
 	return (0);
 }
 int	ft_strcmp2(char *s1, char *s2)

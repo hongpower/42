@@ -6,16 +6,14 @@
 /*   By: jishong <jishong@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 21:50:24 by jishong           #+#    #+#             */
-/*   Updated: 2022/06/07 23:04:36 by jishong          ###   ########.fr       */
+/*   Updated: 2022/06/08 19:35:38 by jishong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_is_sort(int *tab, int length, int(*f)(int, int))
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int	order;
-	int sign;
+	int	sign;
 	int	i;
 
 	order = 0;
@@ -30,7 +28,6 @@ int	ft_is_sort(int *tab, int length, int(*f)(int, int))
 				order = 1;
 			else
 				order = -1;
-			printf("order : %d\n", order);
 		}
 		else if (sign > 0 && order < 0)
 			return (0);
